@@ -12,13 +12,13 @@ node {
   }
   stage('Validate Bundle') {
     sh """#!/bin/bash
-          pwd
-          ls -ltr
+          dab4
           ${DBCLIPATH}/databricks bundle validate -t ${BUNDLETARGET}
        """
   }
   stage('Deploy Bundle') {
     sh """#!/bin/bash
+          cd dab4
           ${DBCLIPATH}/databricks bundle deploy -t ${BUNDLETARGET}
        """
   }
