@@ -2,8 +2,8 @@
 node {
   def GITREPOREMOTE = "https://github.com/Aswinkks/dab-jenkins.git"
   def GITBRANCH     = "main"
-  def DBCLIPATH     = "/usr/local/bin"
-  def JQPATH        = "/usr/local/bin"
+  def DBCLIPATH     = "/opt/homebrew/bin"
+  def JQPATH        = "/opt/homebrew/bin"
   def JOBPREFIX     = "jenkins-demo"
   def BUNDLETARGET  = "dev"
 
