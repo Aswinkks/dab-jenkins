@@ -20,5 +20,4 @@ node {
           ${DBCLIPATH}/databricks bundle deploy -t ${BUNDLETARGET}
        """
   }
-  
 }
