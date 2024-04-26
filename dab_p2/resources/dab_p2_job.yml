@@ -4,6 +4,7 @@ resources:
     dab_p2_job:
       name: dab_p2_job_cicd
 
+
       schedule:
         # Run every day at 8:37 AM
         quartz_cron_expression: '40 35 12 * * ?'
