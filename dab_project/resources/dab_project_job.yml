@@ -2,11 +2,11 @@
 resources:
   jobs:
     dab_project_job:
-      name: dab_project_job_J6
+      name: dab_project_cicd_job_fix
 
       schedule:
         # Run every day at 8:37 AM
-        quartz_cron_expression: '8 0/2 * * * ?'
+        quartz_cron_expression: '8 0/5 * * * ?'
         timezone_id: UTC
 
       # email_notifications:
