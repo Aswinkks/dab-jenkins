@@ -12,7 +12,7 @@ node {
   }
   stage('creds') {
     sh """#!/bin/bash
-          databricks configure --token <<EOF
+          ${DBCLIPATH}/databricks configure --token <<EOF
           https://centralus.azuredatabricks.net
           dapXXXXXXXXXXXXXXXXXXXXXX467
           EOF
