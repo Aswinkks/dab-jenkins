@@ -12,11 +12,9 @@ node {
   }
   stage('creds') {
     sh """#!/bin/bash
-          adburl="https://centralus.azuredatabricks.net"
-          token=dapXXXXXXXXXXXXXXXXXXXXXXXXX467
           databricks configure --token <<EOF
-          $adburl
-          $token
+          https://centralus.azuredatabricks.net
+          dapXXXXXXXXXXXXXXXXXXXXXX467
           EOF
        """
   }
