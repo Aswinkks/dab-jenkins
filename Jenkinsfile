@@ -12,10 +12,21 @@ node {
   }
   stage('Validate Bundle') {
     sh """#!/bin/bash
+          adburl="https://centralus.azuredatabricks.net"
+          token=dapXXXXXXXXXXXXXXXXXXXXXXXXX467
+          databricks configure --token <<EOF
+          $adburl
+          $token
+          EOF
+       """
+  }
+  stage('Validate Bundle') {
+    sh """#!/bin/bash
           cd dab_p2
           ${DBCLIPATH}/databricks bundle validate -t ${BUNDLETARGET}
        """
   }
+  
   stage('Deploy Bundle') {
     sh """#!/bin/bash
           cd dab_p2
