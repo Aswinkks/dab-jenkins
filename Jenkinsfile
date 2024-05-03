@@ -10,14 +10,14 @@ node {
   stage('Checkout') {
     git branch: GITBRANCH, url: GITREPOREMOTE
   }
-  stage('creds') {
-    sh """#!/bin/bash
-          ${DBCLIPATH}/databricks configure --token <<EOF
-          https://centralus.azuredatabricks.net
-          dapXXXXXXXXXXXXXXXXXXXXXX467
-          EOF
-       """
-  }
+  // stage('creds') {
+  //   sh """#!/bin/bash
+  //         ${DBCLIPATH}/databricks configure --token <<EOF
+  //         https://centralus.azuredatabricks.net
+  //         dapXXXXXXXXXXXXXXXXXXXXXX467
+  //         EOF
+  //      """
+  // }
   stage('Validate Bundle') {
     sh """#!/bin/bash
           cd dab_p2
