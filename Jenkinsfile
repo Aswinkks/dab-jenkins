@@ -24,7 +24,7 @@ stage('Install Databricks CLI') {
     sh """#!/bin/bash
           curl -o /tmp/databricks-cli.tar.gz -L "https://github.com/databricks/databricks-cli/releases/download/v${DBCLI_VERSION}/databricks-cli-${DBCLI_VERSION}.tar.gz"
           tar -xzvf /tmp/databricks-cli.tar.gz -C /tmp
-          /tmp/databricks-cli-${DBCLI_VERSION}/install.sh
+          /tmp/databricks-cli/install.sh
        """
   }
   
