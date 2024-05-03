@@ -22,7 +22,7 @@ node {
 
 stage('Install Databricks CLI') {
     sh """#!/bin/bash
-          brew install databricks
+          /opt/homebrew/bin/brew install databricks
        """
   }
   
