@@ -6,6 +6,7 @@ node {
   def JQPATH        = "/opt/homebrew/bin"
   def JOBPREFIX     = "jenkins-demo"
   def BUNDLETARGET  = "dev"
+  def DBCLI_VERSION = "0.218.0"
 
   stage('Checkout') {
     git branch: GITBRANCH, url: GITREPOREMOTE
@@ -18,6 +19,15 @@ node {
   //         EOF
   //      """
   // }
+
+stage('Install Databricks CLI') {
+    sh """#!/bin/bash
+          curl -o /tmp/databricks-cli.tar.gz -L "https://github.com/databricks/databricks-cli/releases/download/v${DBCLI_VERSION}/databricks-cli-${DBCLI_VERSION}.tar.gz"
+          tar -xzvf /tmp/databricks-cli.tar.gz -C /tmp
+          sudo /tmp/databricks-cli-${DBCLI_VERSION}/install.sh
+       """
+  }
+  
   stage('Validate Bundle') {
     sh """#!/bin/bash
           cd dab_p2
