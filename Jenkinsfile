@@ -33,7 +33,7 @@ pipeline {
                 script {
                     sh """
                         cd dab_p2
-                        ${DBCLIPATH}/databricks bundle validate -t ${BUNDLETARGET}
+                        ${DBCLIPATH}/databricks bundle -p demo validate -t ${BUNDLETARGET}
                     """
                 }
             }
@@ -44,7 +44,7 @@ pipeline {
                 script {
                     sh """
                         cd dab_p2
-                        ${DBCLIPATH}/databricks bundle deploy -t ${BUNDLETARGET}
+                        ${DBCLIPATH}/databricks bundle -p demo deploy -t ${BUNDLETARGET}
                     """
                 }
             }
