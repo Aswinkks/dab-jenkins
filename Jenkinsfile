@@ -27,8 +27,8 @@ pipeline {
                         echo "============="
                         // curl -fsSL https://raw.githubusercontent.com/databricks/setup-cli/main/install.sh | sudo sh
                         databricks --version
-                        export DATABRICKS_HOST = "dapi3e5cf647bb68838acfee404a8a362f42-3"
-                        export DATABRICKS_TOKEN = "https://adb-1772544086334040.0.azuredatabricks.net"
+                        export DATABRICKS_HOST="dapi3e5cf647bb68838acfee404a8a362f42-3"
+                        export DATABRICKS_TOKEN="https://adb-1772544086334040.0.azuredatabricks.net"
                         databricks configure
                         cd
                         sudo cat .databrickscfg
