@@ -4,9 +4,8 @@ pipeline {
     environment {
         GITREPOREMOTE = "https://github.com/Aswinkks/dab-jenkins.git"
         GITBRANCH     = "main"
-        DBCLIPATH     = "/opt/homebrew/bin"
-        JQPATH        = "/opt/homebrew/bin"
-        JOBPREFIX     = "jenkins-demo"
+        DBCLIPATH     = "/usr/local/bin/"
+        JOBPREFIX     = "jenkins-demo-cicd"
         BUNDLETARGET  = "dev"
     }
 
