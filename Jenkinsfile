@@ -28,7 +28,7 @@ pipeline {
                             databricks --version
                             export DATABRICKS_HOST="https://adb-1772544086334040.0.azuredatabricks.net"
                             export DATABRICKS_TOKEN="dapi3e5cf647bb68838acfee404a8a362f42-3"
-                            databricks configure -p  demo-dev
+                            databricks configure --profile  demo-dev
                             cd ~
                             sudo cat .databrickscfg
                         else
@@ -36,7 +36,7 @@ pipeline {
                             databricks --version
                             export DATABRICKS_HOST="https://adb-1772544086334040.0.azuredatabricks.net"
                             export DATABRICKS_TOKEN="dapi3e5cf647bb68838acfee404a8a362f42-3"
-                            databricks configure -p demo-dev
+                            databricks configure --profile demo-dev
                             cd ~
                             sudo cat .databrickscfg
                         fi
