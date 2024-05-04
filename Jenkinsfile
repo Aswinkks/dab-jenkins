@@ -24,14 +24,10 @@ pipeline {
             steps {
                 script {
                     sh """
-                    // if ! command -v databricks &>/dev/null; then
-                    //     echo "Databricks CLI not found. Downloading and configuring..."
+                        echo "============="
                         sudo curl -fsSL https://raw.githubusercontent.com/databricks/setup-cli/main/install.sh | sh
                         databricks --version
-                    // else
-                    //     echo "Databricks CLI is already installed."
-                    //     databricks --version
-                    // fi
+                        echo "--------------"
                     """
                 }
             }
