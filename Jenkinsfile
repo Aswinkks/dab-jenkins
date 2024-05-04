@@ -6,6 +6,8 @@ pipeline {
         GITBRANCH     = "main"
         DBCLIPATH     = "/usr/local/bin/"
         BUNDLETARGET  = "dev"
+        DATABRICKS_HOST = credentials('DATABRICKS_HOST')
+        DATABRICKS_TOKEN = credentials('DATABRICKS_TOKEN')
     }
 
     
@@ -26,17 +28,17 @@ pipeline {
                             echo Databricks CLI is not there
                             curl -fsSL https://raw.githubusercontent.com/databricks/setup-cli/main/install.sh | sudo sh
                             databricks --version
-                            export DATABRICKS_HOST="https://adb-1772544086334040.0.azuredatabricks.net"
-                            export DATABRICKS_TOKEN="dapi3e5cf647bb68838acfee404a8a362f42-3"
-                            databricks configure --profile  demo-dev
+                            export DATABRICKS_HOST=${DATABRICKS_HOST}
+                            export DATABRICKS_TOKEN=${DATABRICKS_TOKEN}
+                            databricks configure --profile  demo-dev-new
                             cd ~
                             sudo cat .databrickscfg
                         else
                             echo Databricks CLI is already installed.
                             databricks --version
-                            export DATABRICKS_HOST="https://adb-1772544086334040.0.azuredatabricks.net"
-                            export DATABRICKS_TOKEN="dapi3e5cf647bb68838acfee404a8a362f42-3"
-                            databricks configure --profile demo-dev
+                            export DATABRICKS_HOST=${DATABRICKS_HOST}
+                            export DATABRICKS_TOKEN=${DATABRICKS_TOKEN}
+                            databricks configure --profile demo-dev-new
                             cd ~
                             sudo cat .databrickscfg
                         fi
@@ -51,7 +53,7 @@ pipeline {
                 script {
                     sh """
                         cd dab_p2
-                        ${DBCLIPATH}/databricks bundle -p demo-dev validate -t ${BUNDLETARGET}
+                        ${DBCLIPATH}/databricks bundle -p demo-dev-new validate -t ${BUNDLETARGET}
                     """
                 }
             }
@@ -62,7 +64,7 @@ pipeline {
                 script {
                     sh """
                         cd dab_p2
-                        ${DBCLIPATH}/databricks bundle -p demo-dev deploy -t ${BUNDLETARGET}
+                        ${DBCLIPATH}/databricks bundle -p demo-dev-new deploy -t ${BUNDLETARGET}
                     """
                 }
             }
