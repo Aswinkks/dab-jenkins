@@ -36,7 +36,7 @@ pipeline {
                             databricks --version
                             export DATABRICKS_HOST="https://adb-1772544086334040.0.azuredatabricks.net"
                             export DATABRICKS_TOKEN="dapi3e5cf647bb68838acfee404a8a362f42-3"
-                            databricks configure -p demo-dev-else
+                            databricks configure -p demo-dev
                             cd ~
                             sudo cat .databrickscfg
                         fi
@@ -51,7 +51,7 @@ pipeline {
                 script {
                     sh """
                         cd dab_p2
-                        ${DBCLIPATH}/databricks bundle -p demo validate -t ${BUNDLETARGET}
+                        ${DBCLIPATH}/databricks bundle -p demo-dev validate -t ${BUNDLETARGET}
                     """
                 }
             }
@@ -62,7 +62,7 @@ pipeline {
                 script {
                     sh """
                         cd dab_p2
-                        ${DBCLIPATH}/databricks bundle -p demo deploy -t ${BUNDLETARGET}
+                        ${DBCLIPATH}/databricks bundle -p demo-dev deploy -t ${BUNDLETARGET}
                     """
                 }
             }
