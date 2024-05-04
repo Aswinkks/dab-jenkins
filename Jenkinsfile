@@ -20,12 +20,22 @@ pipeline {
             }
         }
 
-        // stage('Databricks Configure') {
-        //     steps {
-        //         // Add your Databricks configuration steps here
-        //         // For example, setting up Databricks CLI or configuring Databricks connection
-        //     }
-        // }
+        stage('Databricks Configure') {
+            steps {
+                script {
+                    sh """
+                    if ! command -v databricks &>/dev/null; then
+                        echo "Databricks CLI not found. Downloading and configuring..."
+                        sudo curl -fsSL https://raw.githubusercontent.com/databricks/setup-cli/main/install.sh | sh
+                        databricks --version
+                    else
+                        echo "Databricks CLI is already installed."
+                        databricks --version
+                    fi
+                    """
+                }
+            }
+        }
 
         stage('Validate Bundle') {
             steps {
