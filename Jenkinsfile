@@ -5,7 +5,6 @@ pipeline {
         GITREPOREMOTE = "https://github.com/Aswinkks/dab-jenkins.git"
         GITBRANCH     = "main"
         DBCLIPATH     = "/usr/local/bin/"
-        JOBPREFIX     = "jenkins-demo-cicd"
         BUNDLETARGET  = "dev"
     }
 
