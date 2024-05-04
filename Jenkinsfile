@@ -25,8 +25,11 @@ pipeline {
                 script {
                     sh """
                         echo "============="
-                        curl -fsSL https://raw.githubusercontent.com/databricks/setup-cli/main/install.sh | sudo sh
+                        // curl -fsSL https://raw.githubusercontent.com/databricks/setup-cli/main/install.sh | sudo sh
                         databricks --version
+                        databricks configure --token dapi3e5cf647bb68838acfee404a8a362f42-3  --host https://adb-1772544086334040.0.azuredatabricks.net
+                        cd
+                        sudo cat .databrickscfg
                         echo "--------------"
                     """
                 }
