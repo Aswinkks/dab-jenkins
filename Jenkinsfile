@@ -25,7 +25,7 @@ pipeline {
                 script {
                     sh """
                         echo "============="
-                        sudo curl -fsSL https://raw.githubusercontent.com/databricks/setup-cli/main/install.sh | sh
+                        curl -fsSL https://raw.githubusercontent.com/databricks/setup-cli/main/install.sh | sh
                         databricks --version
                         echo "--------------"
                     """
